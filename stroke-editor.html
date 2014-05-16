@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>unistroke-recognize Example</title>
+    <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type="text/css" media="screen" /> -->
+    <style type="text/css" media="screen">
+
+      #toolbar div, #main div {
+      margin-top: 10px;
+      }
+
+      #col-1, #col-2 {
+      float: left;
+      }
+
+      #stroke-output {
+      width: 500px;
+      height: 250px;
+      }
+
+      #canvas {
+      background: #cccccc;
+      cursor: crosshair;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="toolbar">
+      <div>
+        <button id="clear-btn">Clear</button>
+        <button id="update-btn">Refresh</button>
+        <button id="reload-btn">Reload</button>
+        <button id="save-btn">Save As...</button>
+        <button id="load-btn">Load File...</button>
+        <input type="file" id="load-input" style="display: none"></input>
+      </div>
+      <div>
+        <input type="checkbox" id="showCentroid" checked> centroid
+        <input type="checkbox" id="showCorners" checked> corners
+        <input type="checkbox" id="showBoundingBox" checked> bounding box
+        <input type="checkbox" id="useTimeStamp" checked> time stamp
+      </div>
+    </div>
+    <div id="main">
+      <div id="col-1">
+        <div>
+          <canvas id="canvas" width="500" height="500"></canvas>
+        </div>
+        <div>
+          <textarea id="stroke-output"></textarea>
+        </div>
+      </div>
+      <div id="col-2">
+        <div>
+          <input id="original-btn" name="transform" type="radio" value="original" checked>
+          Original
+        </div>
+        <div>
+          <input id="sampled-btn" name="transform" type="radio" value="sampled">
+          Sampled
+        </div>
+        <div>
+          <input id="reverse-btn" name="transform" type="radio" value="reverse">
+          Reversed
+        </div>
+        <div>
+          <input id="flipX-btn" name="transform" type="radio" value="flipX">
+          X Fliped
+        </div>
+        <div>
+          <input id="flipY-btn" name="transform" type="radio" value="flipY">
+          Y Fliped
+        </div>
+        <div>
+          <input id="normalize-btn" name="transform" type="radio" value="normalize">
+          Normalized
+        </div>
+      </div>
+    </div>
+    <!-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+    <script type="text/javascript" src="https://rawgithub.com/eligrey/Blob.js/master/Blob.js"></script>
+    <script type="text/javascript" src="https://rawgithub.com/eligrey/canvas-toBlob.js/master/canvas-toBlob.js"></script>
+    <script type="text/javascript" src="https://rawgithub.com/eligrey/FileSaver.js/master/FileSaver.js"></script>
+    <script type="text/javascript" src="js/sketch/lib/stroke.js"></script>
+    <script type="text/javascript" src="js/sketch/stroke-editor/stroke-editor.js"></script>
+  </body>
+</html>

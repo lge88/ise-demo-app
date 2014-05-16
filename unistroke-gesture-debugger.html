@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>unistroke-recognize Example</title>
+    <style type="text/css" media="screen">
+    .abs {
+        position: absolute;
+    }
+    #token-output {
+        right: 20px;
+        top: 0px;
+        width: 250px;
+        height: 500px;
+        padding: 0px;
+    }
+    #template-list {
+        right: 280px;
+        top: 0px;
+        width: 200px;
+        padding: 0px;
+    }
+    #stroke-output {
+        right: 20px;
+        left: 20px;
+        top: 520px;
+        bottom: 20px;
+        padding: 0px;
+    }
+
+    #main {
+        top: 50px;
+        left: 0px;
+        right:0px;
+        bottom:0px;
+    }
+
+    #canvas {
+        top: 0px;
+        left: 20px;
+        background: #cccccc;
+        cursor: crosshair;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div id="toolbar" class="">
+      <button id="clear-btn">Clear</button>
+      <!-- <button id="clear-but-latest-btn">Clear But Latest</button> -->
+      <label>
+        Template Name:
+        <input id="template-name"></input>
+      </label>
+      <button id="reverse-btn">Reverse</button>
+      <button id="flipX-btn">FlipX</button>
+      <button id="flipY-btn">FlipY</button>
+      <button id="normalize-btn">Normalize</button>
+      <button id="eval-btn">Eval</button>
+      <button id="upload-btn">Upload</button>
+    </div>
+    <div id='main' class='abs'>
+      <canvas id='canvas' width='500' height='500' class='abs'></canvas>
+      <textarea id='stroke-output' class='abs'></textarea>
+      <textarea id='token-output' class='abs'></textarea>
+      <select id='template-list' class='abs'></select>
+    </div>
+    <script type="text/javascript" src="js/sketch/lib/stroke.js"></script>
+    <script type="text/javascript" src="js/sketch/lib/unistroke-recognizer.js"></script>
+    <script type="text/javascript" src="js/sketch/unistroke-gesture-debugger/superagent.js"></script>
+    <script type="text/javascript" src="js/sketch/unistroke-gesture-debugger/arr-gen.js"></script>
+    <script type="text/javascript" src="js/sketch/unistroke-gesture-debugger/unistroke-gesture-debugger.js"></script>
+  </body>
+</html>
