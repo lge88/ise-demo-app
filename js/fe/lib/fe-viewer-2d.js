@@ -1,24 +1,25 @@
-// CLASS METHODS:
-
-// INSTANCE METHODS:
-// FeViewer2D::pan(dx, dy)
-// FeViewer2D::setShift(x, y)
-// FeViewer2D::getShift()
-// FeViewer2D::setScale(s)
-// FeViewer2D::getScale()
-// FeViewer2D::setCanvas(canvas)
-// FeViewer2D::setFeModel(feModel)
-// FeViewer2D::getWidth()
-// FeViewer2D::setWidth(w)
-// FeViewer2D::getHeight()
-// FeViewer2D::setHeight(h)
-// FeViewer2D::clear()
-// FeViewer2D::renderNodes()
-// FeViewer2D::renderElements()
-// FeViewer2D::resetViewport()
-// FeViewer2D::applyCamera()
-// FeViewer2D::render()
-// FeViewer2D::startLoop()
+// FUNCTIONS:
+//   FeViewer2D
+// //
+// [FeViewer2D] instance methods:
+//   FeViewer2D::pan(dx, dy)
+//   FeViewer2D::setShift(x, y)
+//   FeViewer2D::getShift()
+//   FeViewer2D::setScale(s)
+//   FeViewer2D::getScale()
+//   FeViewer2D::setCanvas(canvas)
+//   FeViewer2D::setFeModel(feModel)
+//   FeViewer2D::getWidth()
+//   FeViewer2D::setWidth(w)
+//   FeViewer2D::getHeight()
+//   FeViewer2D::setHeight(h)
+//   FeViewer2D::clear()
+//   FeViewer2D::renderNodes()
+//   FeViewer2D::renderElements()
+//   FeViewer2D::resetViewport()
+//   FeViewer2D::applyCamera()
+//   FeViewer2D::render()
+//   FeViewer2D::startLoop()
 
 var fe = typeof require !== 'undefined' ?
   require('./fe-core') : window.fe;

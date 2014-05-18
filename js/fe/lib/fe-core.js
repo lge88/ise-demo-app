@@ -573,7 +573,6 @@ function FeElementProperty(feModel) {
 }
 FeElementProperty.prototype = Object.create(FeObject.prototype);
 FeElementProperty.prototype.constructor = FeElementProperty;
-
 FeElementProperty.prototype.getType = function() { return ''; };
 
 FeElementProperty.prototype.getElements = function() {
@@ -600,6 +599,24 @@ FeElementProperty.prototype.setElements = function(eles) {
 
 FeElementProperty.prototype.getValue = function() { return null; };
 FeElementProperty.prototype.setValue = function(val) { return this; };
+
+function TrussElementProperty(fem, A, E) {
+  FeElementProperty.call(this, fem);
+  this.A = A;
+  this.E = E;
+}
+TrussElementProperty.prototype = Object.create(FeElementProperty.prototype);
+TrussElementProperty.prototype.constructor = TrussElementProperty;
+TrussElementProperty.prototype.getType = function() { return 'truss'; };
+TrussElementProperty.prototype.copy = function(other) {
+  this._model = other._model;
+  this.A = other.A;
+  this.E = other.E;
+  return this;
+};
+TrussElementProperty.prototype.clone = function(other) {
+  return new TrussElementProperty(this._model, this.A, this.E);
+};
 
 
 function FeTimeSeries(feModel) {
@@ -923,6 +940,21 @@ FeModel.prototype.assignNodalLoad = function(nodes, nodalLoad) {
   var pattern = this.getCurrentPattern();
   pattern.assignNodalLoad(nodes, nodeLoad);
   return this;
+};
+
+FeModel.prototype.createElementProperty = function(type, args_) {
+  var args =  Array.prototype.slice.call(arguments);
+  args.shift();
+
+  var prop;
+
+  // parse args, call constructors based on type
+  if (/[tT]russ/.test(type)) {
+    var A = args.shift();
+    var E = args.shift();
+    prop = new TrussElementProperty(this, A, E);
+  }
+
 };
 
 FeModel.prototype.assignElementProperty = function(eles, eleProp) {

@@ -7,23 +7,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="css/sketchit.css" type="text/css" media="screen"/>
-    <title>SketchIT</title>
+    <title>Fe model viewer</title>
+    <style type="text/css" media="screen">
+      #canvas {
+      background: DarkGray
+      }
+    </style>
   </head>
   <body>
     <div id="main">
-      <canvas id="canvas" width="400" height="400"></canvas>
+      <canvas width="500" height="500" id="canvas"></canvas>
     </div>
-    <script src="js/vendor/magictouch.js"></script>
-    <script src="js/vendor/hammer.js"></script>
     <script src="js/fe/lib/fe-data-structures.js"></script>
     <script src="js/fe/lib/fe-core.js"></script>
     <script src="js/fe/lib/fe-viewer-2d.js"></script>
-    <script src="js/sketchit.js"></script>
-    <script src="js/main.js"></script>
-    <object id="tuio" type="application/x-tuio" style="width: 0px; height: 0px;">
-      Touch input plugin failed to load!
-    </object>
+    <script src="js/fe/fe-viewer-2d-app.js"></script>
   </body>
 </html>
