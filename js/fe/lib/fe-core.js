@@ -1,123 +1,187 @@
-// CLASS METHODS:
-// FeObject.uuid()
-// FeModel.fromJSON(json)
-// INSTANCE METHODS:
-// FeObject::id()
-// FeObject::getType()
-// FeObject::clone()
-// FeObject::copy(other)
-// FeObject::toJSON()
-// FeObject::fromJSON(json)
-// FeNode::getType()
-// FeNode::clone()
-// FeNode::copy(other)
-// FeNode::toJSON()
-// FeNode::fromJSON(json)
-// FeNode::setId(id)
-// FeNode::getTag()
-// FeNode::setTag(t)
-// FeNode::getElements()
-// FeNode::isInElement(feEle)
-// FeNode::isAdjacentTo(feNode)
-// FeNode::getAdjacentNodes()
-// FeNodeProperty::getType()
-// FeNodeProperty::clone(other)
-// FeNodeProperty::copy(other)
-// FeNodeProperty::toJSON()
-// FeNodeProperty::getNodes()
-// FeNodeProperty::getNumOfNodes()
-// FeNodeProperty::setNodes(nodes)
-// FeNodeProperty::getValues()
-// FeSPC::getType()
-// FeSPC::copy(other)
-// FeSPC::clone()
-// FeSPC::toJSON()
-// FeSPC::getValue()
-// FeSPC::setValue(comps)
-// FeSPC::setConstraint(dir, val)
-// FeSPC::getNumOfConstraints()
-// FeSPC::isFree()
-// FeSPC::isConstrained()
-// FeSPC::setFixedIn(dirs)
-// FeSPC::setFreeIn(dirs)
-// FeSPC::isFreeIn(dir)
-// FeSPC::isFixedIn(dir)
-// FeNodalLoad::getType()
-// FeNodalLoad::getValues()
-// FeNodalLoad::isZero()
-// FeNodalLoad::getValueAt(dirs)
-// FeNodalLoad::setValueAt(dir, val)
-// FeElement::setId(id)
-// FeElement::getTag()
-// FeElement::setTag(t)
-// FeElement::toJSON()
-// FeElement::getNodes()
-// FeElement::getNumOfNodes()
-// FeElement::hasNode(feNode)
-// FeElement::isAdjacentTo(feEle)
-// FeElement::getAdjacentElements()
-// FeElementProperty::getType()
-// FeElementProperty::getElements()
-// FeElementProperty::setElements(eles)
-// FeElementProperty::getValue()
-// FeElementProperty::setValue(val)
-// FeTimeSeries::getType()
-// FeTimeSeries::setType(t)
-// FeTimeSeries::getFactor()
-// FeTimeSeries::setFactor(f)
-// FeTimeSeries::getParams()
-// FeTimeSeries::setParams(params)
-// FeTimeSeries::evalAt(time)
-// FeTimeSeries::toJSON()
-// FePattern::getType()
-// FePattern::getTimeSeries()
-// FePattern::setTimeSeries(ts)
-// FePattern::getFactor()
-// FePattern::setFactor(f)
-// FePattern::setAsCurrent()
-// FePlainPattern::getType()
-// FePlainPattern::createNodalLoad(values, type)
-// FePlainPattern::createNodalLoad(values, type)
-// FePlainPattern::createBeamUniformLoad(values)
-// FePlainPattern::createBeamUniformLoad(values)
-// FePlainPattern::assignNodalLoad(nodes, nodalLoad)
-// FePlainPattern::getNodalLoad(node)
-// FePlainPattern::toJSON()
-// FeModel::getObject(o)
-// FeModel::setNodeId(node, id)
-// FeModel::setElementId(ele, id)
-// FeModel::createNode(x, y, z)
-// FeModel::setNodeTag(feNode, tag)
-// FeModel::createElement(nodes)
-// FeModel::setElementTag(feEle, tag)
-// FeModel::createNodeProperty(nodes)
-// FeModel::assignNodeProperty(nodes, nodeProp)
-// FeModel::createNodalLoad(values)
-// FeModel::assignNodalLoad(nodes, nodalLoad)
-// FeModel::assignElementProperty(eles, eleProp)
-// FeModel::getNodeProperty(node)
-// FeModel::createSPC(dims, val)
-// FeModel::assignSPC(nodes, spc)
-// FeModel::createPattern(type, ts)
-// FeModel::getCurrentPattern()
-// FeModel::setCurrentPattern(p)
-// FeModel::getNodes()
-// FeModel::getElements()
-// FeModel::forEachNode(fn, scope)
-// FeModel::forEachElement(fn, scope)
-// FeModel::getAABB()
-// FeModel::getXDiff()
-// FeModel::getYDiff()
-// FeModel::getZDiff()
-// FeModel::getDimension()
-// FeModel::toJSON()
-// FeModel::fromJSON(json)
-// FeModel::copy(other)
-// FeModel::clone()
+// FUNCTIONS:
+//   FeObject
+//   __node__
+//   FeNode
+//   FeNodeProperty
+//   FeSPC
+//   FeNodalLoad
+//   FeElement
+//   FeElementProperty
+//   TrussElementProperty
+//   FeTimeSeries
+//   FePattern
+//   FePlainPattern
+//   FeModel
+//   __helpers__
+//   NotImplementedError
+//   getId
+//   setId
+//   getTypeOf
+//   repeat
+//   addToSet
+//   uniq
+//   clone
+// //
+// [FeObject] instance methods:
+//   FeObject::id()
+//   FeObject::getType()
+//   FeObject::clone()
+//   FeObject::copy(other)
+//   FeObject::toJSON()
+//   FeObject::setFromJSON(json)
+// //
+// [FeNode] instance methods:
+//   FeNode::getType()
+//   FeNode::clone()
+//   FeNode::copy(other)
+//   FeNode::toJSON()
+//   FeNode::setFromJSON(json)
+//   FeNode::setId(id)
+//   FeNode::getLabel()
+//   FeNode::setLabel(t)
+//   FeNode::getElements()
+//   FeNode::isInElement(feEle)
+//   FeNode::isAdjacentTo(feNode)
+//   FeNode::getAdjacentNodes()
+// //
+// [FeNodeProperty] class methods:
+//   FeNodeProperty.prototype[method]()
+// //
+// [FeNodeProperty] instance methods:
+//   FeNodeProperty::getType()
+//   FeNodeProperty::clone(other)
+//   FeNodeProperty::copy(other)
+//   FeNodeProperty::toJSON()
+//   FeNodeProperty::getNodes()
+//   FeNodeProperty::getNumOfNodes()
+//   FeNodeProperty::setNodes(nodes)
+//   FeNodeProperty::getValues()
+//   FeNodeProperty::method]()
+// //
+// [FeSPC] instance methods:
+//   FeSPC::getType()
+//   FeSPC::copy(other)
+//   FeSPC::clone()
+//   FeSPC::toJSON()
+//   FeSPC::getValue()
+//   FeSPC::setValue(comps)
+//   FeSPC::setConstraint(dir, val)
+//   FeSPC::getNumOfConstraints()
+//   FeSPC::isFree()
+//   FeSPC::isConstrained()
+//   FeSPC::setFixedIn(dirs)
+//   FeSPC::setFreeIn(dirs)
+//   FeSPC::isFreeIn(dir)
+//   FeSPC::isFixedIn(dir)
+// //
+// [FeNodalLoad] instance methods:
+//   FeNodalLoad::getType()
+//   FeNodalLoad::_setType(t)
+//   FeNodalLoad::getValues()
+//   FeNodalLoad::_setValues(vals)
+//   FeNodalLoad::isZero()
+//   FeNodalLoad::getValueAt(dirs)
+//   FeNodalLoad::setValueAt(dir, val)
+// //
+// [FeElement] instance methods:
+//   FeElement::setId(id)
+//   FeElement::getLabel()
+//   FeElement::setLabel(t)
+//   FeElement::toJSON()
+//   FeElement::getNodes()
+//   FeElement::getNumOfNodes()
+//   FeElement::hasNode(feNode)
+//   FeElement::isAdjacentTo(feEle)
+//   FeElement::getAdjacentElements()
+// //
+// [FeElementProperty] instance methods:
+//   FeElementProperty::getType()
+//   FeElementProperty::getElements()
+//   FeElementProperty::setElements(eles)
+//   FeElementProperty::getValue()
+//   FeElementProperty::setValue(val)
+// //
+// [TrussElementProperty] instance methods:
+//   TrussElementProperty::getType()
+//   TrussElementProperty::copy(other)
+//   TrussElementProperty::clone(other)
+// //
+// [FeTimeSeries] instance methods:
+//   FeTimeSeries::getType()
+//   FeTimeSeries::setType(t)
+//   FeTimeSeries::getFactor()
+//   FeTimeSeries::setFactor(f)
+//   FeTimeSeries::getParams()
+//   FeTimeSeries::setParams(params)
+//   FeTimeSeries::evalAt(time)
+//   FeTimeSeries::toJSON()
+// //
+// [FePattern] instance methods:
+//   FePattern::getType()
+//   FePattern::getTimeSeries()
+//   FePattern::setTimeSeries(ts)
+//   FePattern::getFactor()
+//   FePattern::setFactor(f)
+//   FePattern::setAsCurrent()
+// //
+// [FePlainPattern] instance methods:
+//   FePlainPattern::getType()
+//   FePlainPattern::createNodalLoad(values, type)
+//   FePlainPattern::createNodalLoad(values, type)
+//   FePlainPattern::createBeamUniformLoad(values)
+//   FePlainPattern::createBeamPointLoad(values)
+//   FePlainPattern::assignNodalLoad(nodes, nodalLoad)
+//   FePlainPattern::getNodalLoad(node)
+//   FePlainPattern::toJSON()
+// //
+// [FeModel] class methods:
+//   FeModel.createFromJSON(json)
+// //
+// [FeModel] instance methods:
+//   FeModel::find(obj)
+//   FeModel::findInType(obj, type)
+//   FeModel::findNode(obj)
+//   FeModel::findElement(obj)
+//   FeModel::setIdOf(obj, id)
+//   FeModel::getIdOf(obj)
+//   FeModel::setNodeId(n, id)
+//   FeModel::setElementId(e, id)
+//   FeModel::createNode(x, y, z)
+//   FeModel::setLabelOf(item, label)
+//   FeModel::createElement(nodes)
+//   FeModel::setNodeTag(feNode, tag)
+//   FeModel::setElementTag(feEle, tag)
+//   FeModel::assignNodeProperty(nodes, nodeProp)
+//   FeModel::createNodalLoad(values)
+//   FeModel::assignNodalLoad(nodes, nodalLoad)
+//   FeModel::createElementProperty(type, args_)
+//   FeModel::assignElementProperty(eles, eleProp)
+//   FeModel::getNodeProperty(node)
+//   FeModel::createSPC(dims, vals)
+//   FeModel::assignSPC(nodes, spc)
+//   FeModel::createPattern(type, ts)
+//   FeModel::getCurrentPattern()
+//   FeModel::setCurrentPattern(p)
+//   FeModel::getNodes()
+//   FeModel::getElements()
+//   FeModel::forEachNode(fn, scope)
+//   FeModel::forEachElement(fn, scope)
+//   FeModel::getAABB()
+//   FeModel::getXDiff()
+//   FeModel::getYDiff()
+//   FeModel::getZDiff()
+//   FeModel::getDimension()
+//   FeModel::toJSON()
+//   FeModel::setFromJSON(json)
+//   FeModel::copy(other)
+//   FeModel::clone()
 
 
 var Bipartite = typeof require === 'function' ?
   require('./fe-data-structures').Bipartite : window.Bipartite;
+
+var Bimap = typeof require === 'function' ?
+  require('./fe-data-structures').Bimap : window.Bimap;
 
 function FeObject() {
   this._id = FeObject.uuid();
@@ -126,28 +190,19 @@ function FeObject() {
 FeObject.prototype.id = function() { return this._id; };
 
 // Return type string
-FeObject.prototype.getType = function() { return 'fe_object'; };
+FeObject.prototype.getType = function() { throw new NotImplementedError; };
 
 // Return a new intance of FeObject
-FeObject.prototype.clone = function() {
-  var obj = new FeObject.prototype.constructor();
-  obj.copy(this);
-  return obj;
-};
+FeObject.prototype.clone = function() { throw new NotImplementedError; };
 
 // Copy another FeObject, return this.
-// If sameId flag is true, copy the other object's uuid as well
-FeObject.prototype.copy = function(other) {
-  return this;
-};
+FeObject.prototype.copy = function(other) { throw new NotImplementedError; };
 
 // Serialize object to plain json
-FeObject.prototype.toJSON = function() { return {}; };
+FeObject.prototype.toJSON = function() { throw new NotImplementedError; };
 
-// Import json
-FeObject.prototype.fromJSON = function(json) {
-  return this;
-};
+// Set state from json
+FeObject.prototype.setFromJSON = function(json) { throw new NotImplementedError; };
 
 FeObject.uuid = function uuid() {
   var res = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
@@ -187,7 +242,7 @@ FeNode.prototype.toJSON = function() {
   return json;
 };
 
-FeNode.prototype.fromJSON = function(json) {
+FeNode.prototype.setFromJSON = function(json) {
   this.x = json.x; this.y = json.y; this.z = json.z;
   return this;
 };
@@ -197,26 +252,24 @@ FeNode.prototype.setId = function(id) {
   return this;
 };
 
-FeNode.prototype.getTag = function() {
+FeNode.prototype.getLabel = function() {
   return '' + this._tag;
 };
 
-FeNode.prototype.setTag = function(t) {
+FeNode.prototype.setLabel = function(t) {
   this._model.setNodeTag(this, t);
   return this;
 };
 
 FeNode.prototype.getElements = function() {
   var model = this._model;
-  // var eles = model._nodeEleMap[this.id()];
   var eles = model._nodeEleGraph.getNeighbors(this);
-
   return Array.isArray(eles) ? eles : [];
 };
 
 FeNode.prototype.isInElement = function(feEle) {
-  var eles = this.getElements();
-  return eles.indexOf(feEle) !== -1;
+  var nodeEleGraph = this._model._nodeEleGraph;
+  return nodeEleGraph.hasEdge(this, feEle);
 };
 
 FeNode.prototype.isAdjacentTo = function(feNode) {
@@ -290,13 +343,10 @@ FeNodeProperty.prototype.toJSON = function() {
   return json;
 };
 
-// FeNodeProperty.prototype.fromJSON = function(json) {};
-
+// FeNodeProperty.prototype.setFromJSON = function(json) {};
 
 FeNodeProperty.prototype.getNodes = function() {
-  // var propNodeMap = this._model._propNodeMap;
   var nodePropGraph = this._model._nodePropGraph;
-  // var out = propNodeMap[this.id()];
   var out = nodePropGraph.getNeighbors(this);
   return Array.isArray(out) ? out : [];
 };
@@ -327,6 +377,7 @@ FeNodeProperty.prototype.getValues = function() {
 };
 // FeNodeProperty.prototype.setValue = function(v) { return this; };
 
+// Forward methods to spc
 
 // Method forward:
 var spcMethods = [
@@ -497,15 +548,9 @@ function FeElement(nodes, model) {
   this._nodes = nodes.slice();
   this._model = model;
 
-  // var nodeEleMap = model._nodeEleMap;
   var nodeEleGraph = model._nodeEleGraph;
   this._nodes.forEach(function(n) {
     nodeEleGraph.addEdge(n, this);
-    // var nid = n.id();
-
-    // if (typeof nodeEleMap[nid] === 'undefined')
-      // nodeEleMap[nid] = [];
-    // addToSet(nodeEleMap[nid], this);
   }, this);
 }
 
@@ -517,11 +562,11 @@ FeElement.prototype.setId = function(id) {
   return this;
 };
 
-FeElement.prototype.getTag = function() {
+FeElement.prototype.getLabel = function() {
   return '' + this._tag;
 };
 
-FeElement.prototype.setTag = function(t) {
+FeElement.prototype.setLabel = function(t) {
   this._model.setElementTag(this, t);
   return this;
 };
@@ -585,11 +630,9 @@ FeElementProperty.prototype.getElements = function() {
 
 FeElementProperty.prototype.setElements = function(eles) {
   var id = this.id();
-  // var propEleMap = this._model._propEleMap;
   var elePropGraph = this._model._elePropGraph;
 
   if (!Array.isArray(eles)) { eles = [eles]; }
-  // this._model._propEleMap[id] = uniq(eles, getId);
   eles.forEach(function(ele) {
     elePropGraph.addEdge(ele, this);
   }, this);
@@ -836,88 +879,60 @@ FePlainPattern.prototype.toJSON = function() {
 function FeModel() {
   FeObject.call(this);
 
-  this._nodes = {};
-  this._nodesByTag = {};
+  // A set of objects grouped by type info.
+  this._objects = new SetStore([], getId, setId, getTypeOf);
 
-  this._elements = {};
-  this._elementsByTag = {};
-
-  // Given node lookup for elements
-  // this._nodeEleMap = {};
+  // Data structures that support extra queries:
+  //   node->elements, element->elements, node->nodes.
   this._nodeEleGraph = new Bipartite([], getId, false);
 
-  // Associate property to a list of nodes/elements
-  this._nodeProps = {};
-  this._eleProps = {};
-
+  // Associate property to a list of nodes/elements/patterns
   this._nodePropGraph = new Bipartite([], getId, false);
   this._elePropGraph = new Bipartite([], getId, false);
+  this._patternPropGraph = new Bipartite([], getId, false);
+  this._timeSeriesPatternMap = new Bimap([], getId);
 
-  // this._propNodeMap = {};
-  // this._propEleMap = {};
+  // Init default objects:
+  // var defaultTimeSeries = new FeTimeSeries(this);
+  // var defaultPattern = new FePlainPattern(defaultTimeSeries, this);
+  var defaultPattern = this.createPattern();
 
-  this._currentPattern = new FePlainPattern(new FeTimeSeries(this), this);
-  this._patterns = {};
-  this._patterns[this._currentPattern.id()] = this._currentPattern;
+  // `Current' pointers
+  this._currentPattern = defaultPattern;
+  // this._patterns = {};
+  // this._patterns[this._currentPattern.id()] = this._currentPattern;
 }
 
 FeModel.prototype = Object.create(FeObject.prototype);
 FeModel.prototype.constructor = FeModel;
 
-function getId(obj) {
-  if (typeof obj === 'string' || typeof obj === 'number')
-    return obj;
-  if (obj && typeof obj === 'object' && typeof obj.id === 'function')
-    return obj.id();
-  return '';
-}
-
-FeModel.prototype.getObject = function(o) {
-  var id = getId(o);
-  return this._nodes[id] ||
-    this._elements[id];
-};
-
-FeModel.prototype.setNodeId = function(node, id) {
-  node = this.getObject(node);
-  node._id = id;
-  this._nodes[id] = node;
-  return this;
-};
-
-FeModel.prototype.setElementId = function(ele, id) {
-  ele = this.getObject(ele);
-  ele._id = id;
-  this._elements[id] = ele;
-  return this;
-};
+FeModel.prototype.find = function(obj) { var key = this.getKeyOf(obj); return this._objects.find(key); };
+FeModel.prototype.getObject = FeModel.prototype.find;
+FeModel.prototype.findInType = function(obj, type) { var key = this.getKeyOf(obj); return this._objects.findInType(key, type); };
+FeModel.prototype.findNode = function(obj) { return this.findInType(obj, 'fe_node'); };
+FeModel.prototype.findElement = function(obj) { return this.findInType(obj, 'fe_element'); };
+FeModel.prototype.setIdOf = function(obj, id) { this._objects.setKeyOf(obj, id); };
+FeModel.prototype.getIdOf = function(obj) { return this._objects.getKeyOf(obj); };
+FeModel.prototype.setNodeId = function(n, id) { this.setIdOf(this.findNode(n), id); return this; };
+FeModel.prototype.setElementId = function(e, id) { this.setIdOf(this.findElement(n), id); return this; };
 
 FeModel.prototype.createNode = function(x, y, z) {
+  if (Array.isArray(x)) { y = x[1]; z = x[2]; x = x[0]; }
   var n = new FeNode(x, y, z, this);
-  var nid = n.id();
-  this._nodes[nid] = n;
+  this._objects.insert(n);
   return n;
 };
 
-FeModel.prototype.setNodeTag = function(feNode, tag) {
-  this._nodesByTag[tag] = feNode;
-  feNode._tag = tag;
-  return this;
-};
+FeModel.prototype.setLabelOf = function(item, label) { this._objects.setLabelOf(item, label); };
 
 FeModel.prototype.createElement = function(nodes) {
   var e = new FeElement(nodes, this);
-  var eid = e.id();
-  this._elements[eid] = e;
+  this._objects.insert(e);
   return e;
 };
 
-FeModel.prototype.setElementTag = function(feEle, tag) {
-  this._elementsByTag[tag] = feEle;
-  feEle._tag = tag;
-  return this;
-};
-
+FeModel.prototype.setNodeTag = function(feNode, tag) { this.setLabelOf(feNode, tag); };
+FeModel.prototype.setElementTag = function(feEle, tag) { this.setLabelOf(feEle, tag); };
 
 // TODO: refactor this method to FePattern
 // FeModel.prototype.createNodeProperty = function(nodes) {
@@ -1036,21 +1051,13 @@ FeModel.prototype.getElements = function() {
 };
 
 FeModel.prototype.forEachNode = function(fn, scope) {
-  scope || (scope = this);
-  var k, n;
-  for (k in this._nodes) {
-    n = this._nodes[k];
-    fn.call(scope, n, k);
-  }
+  var k, items = this._nodes, s = scope || this;
+  for (k in this._nodes) { fn.call(s, items[k], k, items); }
 };
 
 FeModel.prototype.forEachElement = function(fn, scope) {
-  scope || (scope = this);
-  var k, n;
-  for (k in this._elements) {
-    n = this._elements[k];
-    fn.call(scope, n, k);
-  }
+  var k, items = this._elements, s = scope || this;
+  for (k in this._nodes) { fn.call(s, items[k], k, items); }
 };
 
 // return [xmin, xmax, ymin, ymax, zmin, zmax]
@@ -1124,20 +1131,20 @@ FeModel.prototype.toJSON = function() {
   return json;
 };
 
-FeModel.prototype.fromJSON = function(json) {
+FeModel.prototype.setFromJSON = function(json) {
   return this;
 };
 
 FeModel.prototype.copy = function(other) {
-  this.fromJSON(other.toJSON());
+  this.setFromJSON(other.toJSON());
 };
 
 FeModel.prototype.clone = function() {
-  this.fromJSON(other.toJSON());
+  this.setFromJSON(other.toJSON());
 };
 
 // TODO: nodes and elements are duplicate
-FeModel.fromJSON = function(json) {
+FeModel.createFromJSON = function(json) {
   var m = new FeModel();
   json.id && (m._id = json.id);
 
@@ -1179,6 +1186,32 @@ FeModel.fromJSON = function(json) {
 
 function __helpers__() {}
 
+function NotImplementedError(msg) {
+  this.name = 'NotImplementedError';
+  this.message = msg;
+  this.stack = (new Error()).stack;
+}
+NotImplementedError.prototype = new Error;
+
+function getId(obj) {
+  if (typeof obj === 'string' || typeof obj === 'number') { return obj; }
+  if (obj && typeof obj === 'object' && typeof obj.id === 'function') { return obj.id(); }
+  if (typeof obj._id !== 'undefined') { return obj._id; }
+  return '';
+}
+
+function setId(obj, id) { obj._id = id; }
+
+function getTypeOf(obj) {
+  if (obj && typeof obj.getType === 'function') { return obj.getType(); }
+  if (typeof obj === 'string') { return 'string'; }
+  if (typeof obj === 'number') { return 'number'; }
+  if (Array.isArray(obj)) { return 'array'; }
+  if (typeof obj === 'function') { return 'function'; }
+  if (typeof obj === 'object') { return 'object'; }
+  return '';
+}
+
 function repeat(val, n) {
   var arr = new Array(n);
   while (n--) { arr[n] = val; }
@@ -1211,13 +1244,13 @@ function clone(obj, shallow) {
   if (obj && typeof obj.clone === 'function') { return obj.clone(); }
   if (Array.isArray(obj)) { return obj.slice(); }
   if (typeof obj === 'object') {
-    var cloned = {};
+    var cloned = {}, key;
     if (shallow === true) {
-      for (var key in obj) {
+      for (key in obj) {
         if (obj.hasOwnProperty(key)) { cloned[key] = obj[key]; }
       }
     } else {
-      for (var key in obj) {
+      for (key in obj) {
         if (obj.hasOwnProperty(key)) { cloned[key] = clone(obj[key]); }
       }
     }

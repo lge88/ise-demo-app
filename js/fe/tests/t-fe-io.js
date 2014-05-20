@@ -16,21 +16,21 @@
 */
 
 var fe = typeof require !== 'undefined' ?
-  require('./fe-core') : window.fe;
+  require('./lib/fe-core') : window.fe;
 var FeModel = fe.FeModel;
 
 var m = new FeModel();
 
-var n1 = m.createNode(0, 0, 0).setTag('n1');
-var n2 = m.createNode(2, 0, 0).setTag('n2');
-var n3 = m.createNode(2, 1, 0).setTag('n3');
-var n4 = m.createNode(0, 1, 0).setTag('n4');
+var n1 = m.createNode(0, 0, 0).setLabel('n1');
+var n2 = m.createNode(2, 0, 0).setLabel('n2');
+var n3 = m.createNode(2, 1, 0).setLabel('n3');
+var n4 = m.createNode(0, 1, 0).setLabel('n4');
 
-var e1 = m.createElement([n1, n2]).setTag('e1');
-var e2 = m.createElement([n2, n3]).setTag('e2');
-var e3 = m.createElement([n3, n1]).setTag('e3');
-var e4 = m.createElement([n3, n4]).setTag('e4');
-var e5 = m.createElement([n4, n1]).setTag('e5');
+var e1 = m.createElement([n1, n2]).setLabel('e1');
+var e2 = m.createElement([n2, n3]).setLabel('e2');
+var e3 = m.createElement([n3, n1]).setLabel('e3');
+var e4 = m.createElement([n3, n4]).setLabel('e4');
+var e5 = m.createElement([n4, n1]).setLabel('e5');
 
 var spc1 = m.createSPC([0, 1], [0, 0]);
 m.assignSPC([n1, n2], spc1);

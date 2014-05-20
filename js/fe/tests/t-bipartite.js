@@ -1,6 +1,6 @@
 
 var Bipartite = typeof require === 'function' ?
-  require('../fe-data-structures').Bipartite : window.Bipartite;
+  require('../lib/fe-data-structures').Bipartite : window.Bipartite;
 
 function arrEq(a, b) {
   if (a.length !== b.length) { return false; }
@@ -49,7 +49,7 @@ function t1() {
   console.assert(g.belongsTo('A') === 'left');
   console.assert(g.belongsTo('d') === 'none');
 
-  // console.log(g.toDot());
+  console.log(g.toDot());
 }
 
 function t2() {
@@ -70,6 +70,9 @@ function t2() {
   g.removeEdge('A', '3');
   console.assert(g.hasNode('A') === false);
 
+  g.addLeftNode('D');
+  console.log(g.hasNode('D') === true);
+  console.log(g.getDegree('D') === 0);
   // console.log(g.toDot());
 }
 
